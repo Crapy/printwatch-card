@@ -5,9 +5,7 @@ import { formatDuration } from '../../utils/formatters';
 export const headerTemplate = (entities, controls) => html`
   <div class="header">
     <div>
-      <div class="printer-name">${entities.name}</div>
       <div class="status">
-        ${localize.localize(`entity.sensor.state.${entities.status}`)}
         ${entities.isPrinting ? html`
           <span class="progress-text">
             ${Math.round(entities.progress)}% | 

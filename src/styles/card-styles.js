@@ -57,10 +57,15 @@ export const cardStyles = css`
   }
 
   .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: var(--secondary-text-color);
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: color-mix(in srgb, var(--card-background-color) 80%, transparent);
+    text-transform: capitalize;
   }
 
   .printer-name {
