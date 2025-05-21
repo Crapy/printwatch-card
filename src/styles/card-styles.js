@@ -249,7 +249,7 @@ export const cardStyles = css`
     left: 20%;
     right: 20%;
     height: 1px;
-    background-color: background-color: rgba(79, 85, 85, 0.29);
+    background-color: rgba(79, 85, 85, 0.29);
   }
 
   .temp-item {
