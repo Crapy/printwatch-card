@@ -249,7 +249,7 @@ export const cardStyles = css`
     left: 20%;
     right: 20%;
     height: 1px;
-    background-color: var(--divider-color);
+    background-color: background-color: rgba(79, 85, 85, 0.29);
   }
 
   .temp-item {
@@ -350,7 +350,7 @@ export const cardStyles = css`
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    border: 1px solid var(--divider-color);
+    border: 1px solid rgba(79, 85, 85, 0.29);
     position: relative;
     transition: transform 0.3s ease;
   }
