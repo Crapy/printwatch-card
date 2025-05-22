@@ -261,7 +261,8 @@ export const cardStyles = css`
   /* Temperature Display */
   .temperatures {
     position: absolute;
-    top: 10px; /* Adjusted for positioning over camera feed */
+    top: auto; /* Ensure bottom positioning takes precedence */
+    bottom: 10px; /* Positioned at the bottom of the camera feed */
     left: 10px; /* Adjusted for positioning over camera feed */
     right: 10px; /* Adjusted for positioning over camera feed */
     width: auto; /* Let padding and flex define width, or use calc(100% - 20px) */
