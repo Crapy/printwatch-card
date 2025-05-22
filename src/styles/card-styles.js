@@ -162,7 +162,7 @@ export const cardStyles = css`
     font-size: 16px;
     background-color: color-mix(in srgb, var(--card-background-color) 80%, transparent);
     text-transform: capitalize;
-    opacity: 0.7; /* Made more transparent */
+    opacity: 0.7;
   }
 
   /* Print Status */
