@@ -254,6 +254,7 @@ export const cardStyles = css`
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-direction: row !important; /* Ensure horizontal layout */
   }
 
   .temperatures::after {
@@ -272,6 +273,8 @@ export const cardStyles = css`
     border-radius: 12px;
     transition: background-color 0.2s ease;
     -webkit-tap-highlight-color: transparent;
+    flex: 0 1 auto; /* Allow item to size based on content, not grow, but shrink */
+    padding: 8px; /* Add some padding */
   }
 
   .temp-item:hover {
