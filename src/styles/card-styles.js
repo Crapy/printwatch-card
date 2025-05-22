@@ -240,12 +240,16 @@ export const cardStyles = css`
 
   /* Temperature Display */
     .temperatures {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    margin-bottom: 32px;
-    padding-bottom: 32px;
-    position: relative;
+    position: absolute;
+    top: 200px;
+    right: 25px;
+    color: var(--secondary-text-color);
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: color-mix(in srgb, var(--card-background-color) 80%, transparent);
+    text-transform: capitalize;
+    z-index: 9999;
   }
 
   .temperatures::after {
