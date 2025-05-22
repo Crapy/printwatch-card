@@ -57,18 +57,27 @@ export const cardStyles = css`
     overflow: hidden;
   }
 
+  .print-status-header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px; /* Moved from .print-status */
+    gap: 16px; /* Spacing between print status and header */
+  }
+
   .header {
-    position: absolute;
-    top: 20px;
-    right: 25px;
+    /* position: absolute; REMOVED */
+    /* top: 20px; REMOVED */
+    /* right: 25px; REMOVED */
     color: var(--secondary-text-color);
     padding: 4px 8px;
     border-radius: 8px;
     font-size: 16px;
     background-color: color-mix(in srgb, var(--card-background-color) 80%, transparent);
     text-transform: capitalize;
-    z-index: 9999;
+    /* z-index: 9999; REMOVED */
     opacity: 0.7; /* Made more transparent */
+    flex-shrink: 0; /* Prevent shrinking */
   }
 
   .printer-name {
@@ -169,19 +178,21 @@ export const cardStyles = css`
   .print-status {
     background: var(--ha-card-background);
     padding: 8px 0;
-    margin-bottom: 16px;
+    /* margin-bottom: 16px; REMOVED and moved to wrapper */
     border-radius: 8px;
+    flex-grow: 1; /* Take available space */
   }
 
   .not-printing {
     background: var(--ha-card-background);
     padding: 24px;
-    margin-bottom: 16px;
+    /* margin-bottom: 16px; REMOVED and moved to wrapper */
     text-align: center;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     gap: 8px;
+    flex-grow: 1; /* Take available space */
   }
 
   .not-printing .message {

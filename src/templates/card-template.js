@@ -47,14 +47,16 @@ export const cardTemplate = (context) => {
 
   return html`
     <div class="card">
-      ${headerTemplate(entities, controls)}
-      ${cameraFeedTemplate(cameraProps)}
-      ${printStatusTemplate(entities, {
-        hass,
-        onPause: handlePauseDialog,
-        onStop: handleStopDialog,
-        onImageError: context.handleImageError
-      })}
+      ${cameraFeedTemplate(cameraProps)} 
+      <div class="print-status-header-wrapper">
+        ${printStatusTemplate(entities, {
+          hass,
+          onPause: handlePauseDialog,
+          onStop: handleStopDialog,
+          onImageError: context.handleImageError
+        })}
+        ${headerTemplate(entities, controls)}
+      </div>
       ${temperatureDisplayTemplate(entities, hass, dialogConfig, setDialogConfig)}
       ${materialSlotsTemplate(amsSlots)}
       ${temperatureDialogTemplate(dialogConfig, hass)}
