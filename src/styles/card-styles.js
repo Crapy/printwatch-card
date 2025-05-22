@@ -256,9 +256,10 @@ export const cardStyles = css`
     display: flex;
     justify-content: space-around;
     align-items: center;
+    text-align: center;
     flex-direction: row !important; /* Ensure horizontal layout */
     flex-wrap: nowrap; /* Prevent items from wrapping */
-    opacity: 0.7; /* Made more transparent */
+    opacity: 0.8; /* Made more transparent */
   }
 
   .temperatures::after {
@@ -281,7 +282,7 @@ export const cardStyles = css`
     padding: 8px 20px; /* Adjusted top/bottom and increased left/right padding */
     width: auto; /* Ensure width is not forced to 100% by other rules */
     font-size: 12px; /* Slightly bigger than temp-value */
-    opacity: 0.7; /* Make text more transparent */
+    text-align: center;
   }
 
   .temp-item:hover {
@@ -296,8 +297,8 @@ export const cardStyles = css`
   .temp-value {
     font-size: 14px;
     font-weight: 500;
-    opacity: 0.8; /* Make text more transparent */
-    font-weight: bold; /* Bolder */
+    font-weight: bold;
+    text-align: center;
   }
 
   /* Dialog Styles */
