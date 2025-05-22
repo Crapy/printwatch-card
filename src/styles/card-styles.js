@@ -59,13 +59,14 @@ export const cardStyles = css`
   .header {
     position: absolute;
     top: 4px;
-    right: 4px;
+    right: 20px;
     color: var(--secondary-text-color);
     padding: 4px 8px;
     border-radius: 8px;
     font-size: 16px;
     background-color: color-mix(in srgb, var(--card-background-color) 80%, transparent);
     text-transform: capitalize;
+    z-index: 9999;
   }
 
   .printer-name {
