@@ -60,7 +60,7 @@ export const cardStyles = css`
   .print-status-header-wrapper {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: stretch; /* Changed from flex-start to stretch */
     margin-bottom: 16px; /* Moved from .print-status */
     gap: 16px; /* Spacing between print status and header */
   }
