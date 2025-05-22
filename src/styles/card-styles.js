@@ -66,18 +66,18 @@ export const cardStyles = css`
   }
 
   .header {
-    /* position: absolute; REMOVED */
-    /* top: 20px; REMOVED */
-    /* right: 25px; REMOVED */
     color: var(--secondary-text-color);
     padding: 4px 8px;
     border-radius: 8px;
     font-size: 16px;
     background-color: color-mix(in srgb, var(--card-background-color) 80%, transparent);
     text-transform: capitalize;
-    /* z-index: 9999; REMOVED */
     opacity: 0.7; /* Made more transparent */
     flex-shrink: 0; /* Prevent shrinking */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes status to top, controls to bottom */
+    align-items: center; /* Centers controls horizontally */
   }
 
   .printer-name {
@@ -176,7 +176,7 @@ export const cardStyles = css`
     font-size: 16px;
     background-color: color-mix(in srgb, var(--card-background-color) 80%, transparent);
     text-transform: capitalize;
-    opacity: 0.7;
+    opacity: 0.9;
   }
 
   /* Print Status */
