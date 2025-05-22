@@ -266,7 +266,6 @@ export const cardStyles = css`
   .temp-item {
     color: var(--primary-text-color);
     cursor: pointer;
-    padding: 12px;
     border-radius: 12px;
     transition: background-color 0.2s ease;
     -webkit-tap-highlight-color: transparent;
@@ -284,7 +283,6 @@ export const cardStyles = css`
   .temp-value {
     font-size: 16px;
     font-weight: 500;
-    margin-bottom: 4px;
   }
 
   /* Dialog Styles */
