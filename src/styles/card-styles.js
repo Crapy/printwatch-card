@@ -168,7 +168,7 @@ export const cardStyles = css`
   /* Print Status */
   .print-status {
     background: var(--ha-card-background);
-    padding: 16px 0;
+    padding: 4px 0;
     margin-bottom: 16px;
     border-radius: 8px;
   }
@@ -357,7 +357,7 @@ export const cardStyles = css`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
     gap: 16px;
-    padding: 16px;
+    padding: 4px;
   }
 
   .material-slot {
