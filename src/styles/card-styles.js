@@ -8,6 +8,7 @@ export const cardStyles = css`
     width: 100px;
     border-radius: 8px;
     overflow: hidden;
+    margin: 0 8px;
     background: var(--secondary-background-color);
     align-self: stretch;
   }
@@ -169,6 +170,7 @@ export const cardStyles = css`
     background: var(--ha-card-background);
     padding: 16px 0;
     margin-bottom: 16px;
+    border-radius: 8px;
   }
 
   .not-printing {
@@ -279,7 +281,7 @@ export const cardStyles = css`
     transition: background-color 0.2s ease;
     -webkit-tap-highlight-color: transparent;
     flex: 0 1 auto; /* Allow item to size based on content, not grow, but shrink */
-    padding: 8px 20px; /* Adjusted top/bottom and increased left/right padding */
+    padding: 6px 24px; /* Adjusted top/bottom and increased left/right padding */
     width: auto; /* Ensure width is not forced to 100% by other rules */
     font-size: 12px; /* Slightly bigger than temp-value */
     text-align: center;
