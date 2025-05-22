@@ -287,7 +287,7 @@ export const cardStyles = css`
   }
 
   .temp-value {
-    font-size: 32px;
+    font-size: 16px;
     font-weight: 500;
     margin-bottom: 4px;
   }
