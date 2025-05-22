@@ -58,8 +58,9 @@ export const cardStyles = css`
 
   .header {
     position: absolute;
-    top: 30px;
+    top: 25px;
     right: 25px;
+    width: 90%;
     color: var(--secondary-text-color);
     padding: 4px 8px;
     border-radius: 8px;
