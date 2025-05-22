@@ -245,7 +245,7 @@ export const cardStyles = css`
   /* Temperature Display */
     .temperatures {
     position: absolute;
-    top: 300px;
+    top: 280px;
     left: 23px;
     width: 90%;
     color: var(--secondary-text-color);
