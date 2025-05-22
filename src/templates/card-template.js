@@ -47,7 +47,10 @@ export const cardTemplate = (context) => {
 
   return html`
     <div class="card">
-      ${cameraFeedTemplate(cameraProps)} 
+      <div class="camera-and-temps-wrapper">
+        ${cameraFeedTemplate(cameraProps)}
+        ${temperatureDisplayTemplate(entities, hass, dialogConfig, setDialogConfig)}
+      </div>
       <div class="print-status-header-wrapper">
         ${printStatusTemplate(entities, {
           hass,
@@ -57,7 +60,6 @@ export const cardTemplate = (context) => {
         })}
         ${headerTemplate(entities, controls)}
       </div>
-      ${temperatureDisplayTemplate(entities, hass, dialogConfig, setDialogConfig)}
       ${materialSlotsTemplate(amsSlots)}
       ${temperatureDialogTemplate(dialogConfig, hass)}
       ${confirmDialogTemplate(confirmDialog)}

@@ -137,12 +137,17 @@ export const cardStyles = css`
   }
 
   /* Camera Feed */
+  .camera-and-temps-wrapper {
+    position: relative;
+    margin-bottom: 16px; /* Maintains spacing, moved from .camera-feed */
+  }
+
   .camera-feed {
     width: 100%;
     aspect-ratio: 16 / 9;
     border-radius: 8px;
-    margin-bottom: 16px;
-    position: relative;
+    /* margin-bottom: 16px; REMOVED - Handled by wrapper */
+    position: relative; /* Keep for internal elements like camera-label if needed */
     background: var(--secondary-background-color);
     overflow: hidden;
   }
@@ -254,25 +259,26 @@ export const cardStyles = css`
   }
 
   /* Temperature Display */
-    .temperatures {
+  .temperatures {
     position: absolute;
-    top: 280px;
-    left: 23px;
-    width: 90%;
+    top: 10px; /* Adjusted for positioning over camera feed */
+    left: 10px; /* Adjusted for positioning over camera feed */
+    right: 10px; /* Adjusted for positioning over camera feed */
+    width: auto; /* Let padding and flex define width, or use calc(100% - 20px) */
     color: var(--secondary-text-color);
-    padding: 2px 6px; /* Made smaller */
+    padding: 4px 8px; /* Adjusted padding */
     border-radius: 8px;
-    font-size: 14px; /* Made smaller */
-    background-color: color-mix(in srgb, var(--card-background-color) 60%, transparent); /* Made more transparent */
+    font-size: 14px;
+    background-color: color-mix(in srgb, var(--card-background-color) 70%, transparent); /* Slightly less transparent for readability */
     text-transform: capitalize;
-    z-index: 9999;
+    z-index: 10; /* Ensure it's above camera feed content but not necessarily everything */
     display: flex;
     justify-content: space-around;
     align-items: center;
     text-align: center;
     flex-direction: row !important; /* Ensure horizontal layout */
     flex-wrap: nowrap; /* Prevent items from wrapping */
-    opacity: 0.8; /* Made more transparent */
+    opacity: 0.9; /* Slightly less transparent for readability */
   }
 
   .temperatures::after {
