@@ -70,7 +70,7 @@ export const cardStyles = css`
     padding: 4px 8px;
     border-radius: 8px;
     font-size: 16px;
-    background-color: color-mix(in srgb, var(--card-background-color) 80%, transparent);
+    background: var(--ha-card-background);
     text-transform: capitalize;
     opacity: 0.7; /* Made more transparent */
     flex-shrink: 0; /* Prevent shrinking */
@@ -183,7 +183,6 @@ export const cardStyles = css`
   .print-status {
     background: var(--ha-card-background);
     padding: 8px 0;
-    /* margin-bottom: 16px; REMOVED and moved to wrapper */
     border-radius: 8px;
     flex-grow: 1; /* Take available space */
   }
