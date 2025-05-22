@@ -58,7 +58,7 @@ export const cardStyles = css`
 
   .header {
     position: absolute;
-    top: 20px;
+    top: 30px;
     right: 25px;
     color: var(--secondary-text-color);
     padding: 4px 8px;
@@ -241,7 +241,7 @@ export const cardStyles = css`
   /* Temperature Display */
     .temperatures {
     position: absolute;
-    top: 200px;
+    top: 300px;
     left: 25px;
     color: var(--secondary-text-color);
     padding: 4px 8px;
