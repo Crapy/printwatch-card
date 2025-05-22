@@ -245,16 +245,17 @@ export const cardStyles = css`
     left: 25px;
     width: 90%;
     color: var(--secondary-text-color);
-    padding: 4px 8px;
+    padding: 2px 6px; /* Made smaller */
     border-radius: 8px;
-    font-size: 16px;
-    background-color: color-mix(in srgb, var(--card-background-color) 80%, transparent);
+    font-size: 14px; /* Made smaller */
+    background-color: color-mix(in srgb, var(--card-background-color) 60%, transparent); /* Made more transparent */
     text-transform: capitalize;
     z-index: 9999;
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: row !important; /* Ensure horizontal layout */
+    flex-wrap: nowrap; /* Prevent items from wrapping */
   }
 
   .temperatures::after {
@@ -275,6 +276,10 @@ export const cardStyles = css`
     -webkit-tap-highlight-color: transparent;
     flex: 0 1 auto; /* Allow item to size based on content, not grow, but shrink */
     padding: 8px; /* Add some padding */
+    width: auto; /* Ensure width is not forced to 100% by other rules */
+    font-size: 14px; /* Slightly bigger than temp-value */
+    font-weight: bold; /* Bolder */
+    opacity: 0.75; /* Make text more transparent */
   }
 
   .temp-item:hover {
@@ -287,8 +292,9 @@ export const cardStyles = css`
   }
 
   .temp-value {
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 500;
+    opacity: 0.75; /* Make text more transparent */
   }
 
   /* Dialog Styles */
