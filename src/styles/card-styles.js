@@ -168,7 +168,7 @@ export const cardStyles = css`
   /* Print Status */
   .print-status {
     background: var(--ha-card-background);
-    padding: 4px 0;
+    padding: 8px 0;
     margin-bottom: 16px;
     border-radius: 8px;
   }
