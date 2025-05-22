@@ -241,8 +241,8 @@ export const cardStyles = css`
   /* Temperature Display */
     .temperatures {
     position: absolute;
-    top: 250px;
-    left: 25px;
+    top: 270px;
+    left: 23px;
     width: 90%;
     color: var(--secondary-text-color);
     padding: 2px 6px; /* Made smaller */
@@ -275,10 +275,9 @@ export const cardStyles = css`
     transition: background-color 0.2s ease;
     -webkit-tap-highlight-color: transparent;
     flex: 0 1 auto; /* Allow item to size based on content, not grow, but shrink */
-    padding: 8px; /* Add some padding */
+    padding: 8px 16px; /* Adjusted top/bottom and increased left/right padding */
     width: auto; /* Ensure width is not forced to 100% by other rules */
-    font-size: 14px; /* Slightly bigger than temp-value */
-    font-weight: bold; /* Bolder */
+    font-size: 12px; /* Slightly bigger than temp-value */
     opacity: 0.75; /* Make text more transparent */
   }
 
@@ -292,9 +291,10 @@ export const cardStyles = css`
   }
 
   .temp-value {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
     opacity: 0.75; /* Make text more transparent */
+    font-weight: bold; /* Bolder */
   }
 
   /* Dialog Styles */
