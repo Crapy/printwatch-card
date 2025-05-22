@@ -264,12 +264,7 @@ export const cardStyles = css`
   }
 
   .temp-item {
-    text-align: center;
     color: var(--primary-text-color);
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     cursor: pointer;
     padding: 12px;
     border-radius: 12px;
