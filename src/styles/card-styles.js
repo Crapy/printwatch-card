@@ -67,6 +67,7 @@ export const cardStyles = css`
     background-color: color-mix(in srgb, var(--card-background-color) 80%, transparent);
     text-transform: capitalize;
     z-index: 9999;
+    opacity: 0.7; /* Made more transparent */
   }
 
   .printer-name {
@@ -160,6 +161,7 @@ export const cardStyles = css`
     font-size: 16px;
     background-color: color-mix(in srgb, var(--card-background-color) 80%, transparent);
     text-transform: capitalize;
+    opacity: 0.7; /* Made more transparent */
   }
 
   /* Print Status */
@@ -256,6 +258,7 @@ export const cardStyles = css`
     align-items: center;
     flex-direction: row !important; /* Ensure horizontal layout */
     flex-wrap: nowrap; /* Prevent items from wrapping */
+    opacity: 0.7; /* Made more transparent */
   }
 
   .temperatures::after {
@@ -275,10 +278,10 @@ export const cardStyles = css`
     transition: background-color 0.2s ease;
     -webkit-tap-highlight-color: transparent;
     flex: 0 1 auto; /* Allow item to size based on content, not grow, but shrink */
-    padding: 8px 16px; /* Adjusted top/bottom and increased left/right padding */
+    padding: 8px 20px; /* Adjusted top/bottom and increased left/right padding */
     width: auto; /* Ensure width is not forced to 100% by other rules */
     font-size: 12px; /* Slightly bigger than temp-value */
-    opacity: 0.75; /* Make text more transparent */
+    opacity: 0.7; /* Make text more transparent */
   }
 
   .temp-item:hover {
@@ -293,7 +296,7 @@ export const cardStyles = css`
   .temp-value {
     font-size: 14px;
     font-weight: 500;
-    opacity: 0.75; /* Make text more transparent */
+    opacity: 0.8; /* Make text more transparent */
     font-weight: bold; /* Bolder */
   }
 
