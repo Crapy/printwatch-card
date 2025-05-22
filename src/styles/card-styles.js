@@ -251,6 +251,9 @@ export const cardStyles = css`
     background-color: color-mix(in srgb, var(--card-background-color) 80%, transparent);
     text-transform: capitalize;
     z-index: 9999;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
   }
 
   .temperatures::after {
