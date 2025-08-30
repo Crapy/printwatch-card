@@ -186,7 +186,7 @@ export const cardStyles = css`
     right: 4px;
     border: none;
     border-radius: 50%;
-    padding: 6px;
+    padding: 4px;
     cursor: pointer;
     color: var(--secondary-text-color);
     background-color: color-mix(in srgb, var(--card-background-color) 70%, transparent);
