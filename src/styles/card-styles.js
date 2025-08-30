@@ -182,8 +182,8 @@ export const cardStyles = css`
   /* Camera light toggle overlay */
   .camera-light-toggle {
     position: absolute;
-    top: 8px;
-    right: 8px;
+    top: 4px;
+    right: 4px;
     border: none;
     border-radius: 50%;
     padding: 6px;
