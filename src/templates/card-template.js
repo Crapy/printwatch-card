@@ -49,6 +49,13 @@ export const cardTemplate = (context) => {
     <div class="card">
       <div class="camera-and-temps-wrapper">
         ${cameraFeedTemplate(cameraProps)}
+        <button
+          class="camera-light-toggle ${controls.lightState === 'on' ? 'active' : ''}"
+          @click=${controls.onLightToggle}
+          title="Toggle light"
+        >
+          <ha-icon icon="mdi:lightbulb"></ha-icon>
+        </button>
         ${temperatureDisplayTemplate(entities, hass, dialogConfig, setDialogConfig)}
       </div>
       <div class="print-status-header-wrapper">

@@ -179,6 +179,43 @@ export const cardStyles = css`
     opacity: 0.9;
   }
 
+  /* Camera light toggle overlay */
+  .camera-light-toggle {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    border: none;
+    border-radius: 50%;
+    padding: 6px;
+    cursor: pointer;
+    color: var(--secondary-text-color);
+    background-color: color-mix(in srgb, var(--card-background-color) 70%, transparent);
+    opacity: 0.8; /* semi-transparent */
+    z-index: 12; /* above temps overlay (10) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease, opacity 0.2s ease, transform 0.15s ease;
+  }
+
+  .camera-light-toggle:hover {
+    opacity: 1;
+    background-color: color-mix(in srgb, var(--card-background-color) 85%, transparent);
+  }
+
+  .camera-light-toggle:active {
+    transform: scale(0.96);
+  }
+
+  .camera-light-toggle.active {
+    color: var(--state-active-color);
+  }
+
+  .camera-light-toggle ha-icon {
+    width: 22px;
+    height: 22px;
+  }
+
   /* Print Status */
   .print-status {
     background: var(--ha-card-background);

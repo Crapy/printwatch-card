@@ -23,12 +23,6 @@ export const headerTemplate = (entities, controls) => html`
       ` : ''}
     </div>
     <div class="header-controls">
-      <button 
-        class="icon-button ${controls.lightState === 'on' ? 'active' : ''}" 
-        @click=${controls.onLightToggle}
-      >
-        <ha-icon icon="mdi:lightbulb"></ha-icon>
-      </button>
       ${entities.aux_fan_entity ? html`
         <button 
           class="icon-button ${controls.fanState === 'on' ? 'active' : ''}"
