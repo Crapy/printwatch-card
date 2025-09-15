@@ -13,7 +13,9 @@ A feature-rich Home Assistant card for monitoring and controlling your P1S 3D pr
 
 ## Features
 
-- 🎥 Live camera feed with configurable refresh rate
+- 🎥 Live camera feed
+  - Uses native HA streaming for `camera.*` entities (e.g. Generic Camera)
+  - Uses configurable refresh rate for `image.*` entities
 - 📊 Print progress tracking with layer count and estimated completion time
 - 🎨 AMS/Material status visualization including current filament
 - 💡 Quick controls for chamber light and auxiliary fan
@@ -31,7 +33,8 @@ pa
 - Home Assistant
 - P1S Printer integration configured in Home Assistant using [ha-bambulab]((https://github.com/greghesp/ha-bambulab)) plugin
 - Required entities set up (see Configuration section)
-- Image sensor toggle turned on
+- For streaming: the built-in Home Assistant `stream` integration must be enabled
+- Image sensor toggle turned on (for image.* camera entities)
 
 ![Image Screenshot](assets/image-toggle.png)
 
