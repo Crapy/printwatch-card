@@ -1,6 +1,6 @@
 import { html } from 'lit';
 import { localize } from '../../utils/localize';
-import { formatDuration } from '../../utils/formatters';
+import { formatDuration, formatEndTime } from '../../utils/formatters';
 
 export const headerTemplate = (entities, controls) => html`
   <div class="header">
@@ -18,7 +18,7 @@ export const headerTemplate = (entities, controls) => html`
           <div class="progress-fill" style="width: ${entities.progress}%"></div>
         </div>
         <div class="layer-info">
-          ${localize.t('time.left')}: ${formatDuration(entities.remainingTime)}
+          ${localize.t('time.left')}: ${formatDuration(entities.remainingTime)}${entities.remainingTime > 0 ? `, ${formatEndTime(entities.remainingTime, controls.hass)}` : ''}
         </div>
       ` : ''}
     </div>

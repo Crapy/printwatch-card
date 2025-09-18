@@ -35,17 +35,42 @@ export const formatEndTime = (remainingMinutes, hass) => {
   }
 
   try {
+    const now = new Date();
     const endTime = new Date(Date.now() + (remainingMinutes * 60000));
+    // Determine whether to use 12h (AM/PM) or 24h clock
+    const timeFormatPref = hass?.locale?.time_format; // '12' | '24' | 'system' | undefined
+    let useHour12;
+    if (timeFormatPref === '24') {
+      useHour12 = false;
+    } else if (timeFormatPref === '12') {
+      useHour12 = true;
+    } else {
+      // Fallback to detecting from the locale using Intl
+      try {
+        const parts = new Intl.DateTimeFormat(hass.locale.language, { hour: 'numeric' }).formatToParts(new Date());
+        useHour12 = parts.some(p => p.type === 'dayPeriod');
+      } catch {
+        useHour12 = false; // sensible default to 24h if detection fails
+      }
+    }
+
     const timeFormat = {
-      hour: hass.locale.hour_24 ? '2-digit' : 'numeric',
+      hour: useHour12 ? 'numeric' : '2-digit',
       minute: '2-digit',
-      hour12: !hass.locale.hour_24
+      hour12: useHour12
     };
 
-    return new Intl.DateTimeFormat(hass.locale.language, timeFormat)
+    const formatted = new Intl.DateTimeFormat(hass.locale.language, timeFormat)
       .format(endTime)
       .toLowerCase()
       .replace(/\s/g, '');
+
+    // Calculate calendar day difference and append +N if it ends on a later day
+    const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const startOfEndDay = new Date(endTime.getFullYear(), endTime.getMonth(), endTime.getDate());
+    const dayDiff = Math.round((startOfEndDay - startOfToday) / 86400000);
+
+    return `${formatted}${dayDiff > 0 ? ` +${dayDiff}` : ''}`;
   } catch (error) {
     console.warn('Error formatting end time:', error);
     return '---';
