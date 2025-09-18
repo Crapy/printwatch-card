@@ -142,5 +142,5 @@ If you find this useful contribute to the original author
 
 <a href="https://www.buymeacoffee.com/drkpxl" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 160px !important;" ></a>
 
-If you like my edit consider buying me a coffee as well
+If you like my edit consider buying me a coffee as well<br>
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/X8X3169792)
