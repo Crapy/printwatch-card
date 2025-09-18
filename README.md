@@ -4,15 +4,6 @@
 
 A feature-rich Home Assistant card for monitoring and controlling your P1S 3D printer. Get real-time updates on print progress, temperatures, material status, and more with a sleek, user-friendly interface.
 
-### Light Mode 
-![PrintWatch Card Screenshot](assets/light-mode-min.png)
-
-### Dark Mode
-![PrintWatch Dark Mode](assets/dark-mode-min.png)  
-
-### German Example
-![PrintWatch Nord](assets/german.png)
-
 ## Features
 
 - 🎥 Live camera feed
@@ -36,27 +27,19 @@ pa
 - P1S Printer integration configured in Home Assistant using [ha-bambulab]((https://github.com/greghesp/ha-bambulab)) plugin
 - Required entities set up (see Configuration section)
 - For streaming: the built-in Home Assistant `stream` integration must be enabled
-- Image sensor toggle turned on (for image.* camera entities)
+- Camera entity must be a Generic Camera entity (.camera.* or .image.*)
 
 ![Image Screenshot](assets/image-toggle.png)
 
 
 ## Installation
 
-### HACS (Recommended) - Awaiting approval from HACS, follow manual
-
-1. Open HACS in Home Assistant
-2. Click on "Frontend" section
-3. Click the "+ Explore & Download Repositories" button
-4. Search for "PrintWatch Card"
-5. Click "Download"
-6. Restart Home Assistant
 
 ### Manual Installation
 
 1. Navigate to HACS
 2. Tap 3 buttons in top right and select custom repositories
-3. Paste `https://github.com/drkpxl/printwatch-card` and select `dashboard`
+3. Paste `https://github.com/Crapy/printwatch-card` and select `dashboard`
 4. Save
 5. Select printwatch-card in HACS listing and click download
 6. Navigate to settings and install card if needed there.
@@ -155,6 +138,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-If you find this useful I am addicted to good coffee.
+If you find this useful contribute to the original author
 
 <a href="https://www.buymeacoffee.com/drkpxl" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 160px !important;" ></a>
+
+If you like my edit consider buying me a coffee as well
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/X8X3169792)
