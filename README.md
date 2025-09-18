@@ -1,3 +1,5 @@
+# This is a hard fork of the great PrintWatch Card with my own take on it (it looks different).
+
 # PrintWatch Card
 
 A feature-rich Home Assistant card for monitoring and controlling your P1S 3D printer. Get real-time updates on print progress, temperatures, material status, and more with a sleek, user-friendly interface.
