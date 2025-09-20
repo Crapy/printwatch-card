@@ -13,6 +13,76 @@ export const cardStyles = css`
     align-self: stretch;
   }
 
+  /* Container query: when the card itself is narrow (desktop small columns),
+     stack and stretch header content so the progress bar extends nicely. */
+  @container (max-width: 600px) {
+    .print-status-header-wrapper {
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .print-status,
+    .header {
+      width: 100%;
+      min-width: 0;
+    }
+
+    .header {
+      flex-shrink: 1;
+      align-items: stretch;
+    }
+
+    .header-controls {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    /* Moderate scaling when card (and thus camera feed) is narrow */
+    .header { font-size: 14px; padding: 3px 6px; }
+    .status { font-size: 14px; }
+    .progress-text, .layer-info { font-size: 12px; }
+    .progress-bar { height: 3px; margin: 2px 0; }
+    .header-controls .icon-button { padding: 6px; }
+    .header-controls .icon-button ha-icon { width: 20px; height: 20px; }
+
+    .print-preview { gap: 6px; }
+    .preview-image { width: 88px; }
+    .print-details h3 { font-size: 15px; }
+    .print-details .print-stats { font-size: 13px; }
+    .btn { padding: 6px 16px; font-size: 15px; }
+
+    .temperatures { font-size: 12px; padding: 3px 6px; }
+    .temp-item { padding: 3px 10px; font-size: 11px; }
+    .temp-value { font-size: 12px; }
+    .camera-label { font-size: 12px; padding: 2px 6px; }
+    .camera-light-toggle { width: 30px; height: 30px; }
+    .camera-light-toggle ha-icon { --mdc-icon-size: 20px; width: 20px; height: 20px; }
+  }
+
+  /* Stronger scaling when the card is very narrow */
+  @container (max-width: 420px) {
+    .header { font-size: 13px; padding: 2px 6px; }
+    .status { font-size: 13px; }
+    .progress-text, .layer-info { font-size: 11px; }
+    .progress-bar { height: 3px; margin: 2px 0; }
+    .header-controls .icon-button { padding: 4px; }
+    .header-controls .icon-button ha-icon { width: 18px; height: 18px; }
+
+    .print-preview { gap: 6px; }
+    .preview-image { width: 72px; }
+    .print-details h3 { font-size: 14px; }
+    .print-details .print-stats { font-size: 12px; }
+    .btn { padding: 6px 12px; font-size: 14px; }
+
+    .temperatures { font-size: 11px; padding: 2px 4px; }
+    .temp-item { padding: 2px 8px; font-size: 10px; }
+    .temp-value { font-size: 11px; }
+    .camera-label { font-size: 12px; padding: 2px 6px; }
+    .camera-light-toggle { width: 28px; height: 28px; }
+    .camera-light-toggle ha-icon { --mdc-icon-size: 20px; width: 20px; height: 20px; }
+  }
+
   .preview-image img {
     width: 100%;
     height: 100%;
@@ -55,6 +125,8 @@ export const cardStyles = css`
     font-family: var(--primary-font-family, -apple-system, BlinkMacSystemFont, sans-serif);
     position: relative;
     overflow: hidden;
+    /* Enable container queries so layout can respond to card width, not viewport */
+    container-type: inline-size;
   }
 
   .print-status-header-wrapper {
@@ -63,6 +135,7 @@ export const cardStyles = css`
     align-items: stretch; /* Changed from flex-start to stretch */
     margin-bottom: 16px; /* Moved from .print-status */
     gap: 16px; /* Spacing between print status and header */
+    flex-wrap: wrap; /* Allow wrapping on small screens to prevent overflow */
   }
 
   .header {
@@ -78,6 +151,13 @@ export const cardStyles = css`
     flex-direction: column;
     justify-content: space-between; /* Pushes status to top, controls to bottom */
     align-items: center; /* Centers controls horizontally */
+  }
+
+  /* Ensure the content column inside header stretches to full width so progress bar can fill */
+  .header > div:first-child {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
   }
 
   .printer-name {
@@ -140,6 +220,9 @@ export const cardStyles = css`
   .camera-and-temps-wrapper {
     position: relative;
     margin-bottom: 16px; /* Maintains spacing, moved from .camera-feed */
+    /* Make this a container so overlay and light toggle scale with camera width */
+    container-type: inline-size;
+    container-name: camera;
   }
 
   .camera-feed {
@@ -186,7 +269,11 @@ export const cardStyles = css`
     right: 4px;
     border: none;
     border-radius: 50%;
-    padding: 4px;
+    width: 36px; /* Use 24px icon with 6px inset each side */
+    height: 36px;
+    padding: 0; /* Fixed-size circle to ensure perfect centering */
+    box-sizing: border-box;
+    line-height: 0; /* Avoid extra inline spacing */
     cursor: pointer;
     color: var(--secondary-text-color);
     background-color: color-mix(in srgb, var(--card-background-color) 70%, transparent);
@@ -212,8 +299,18 @@ export const cardStyles = css`
   }
 
   .camera-light-toggle ha-icon {
-    width: 22px;
-    height: 22px;
+    --mdc-icon-size: 24px; /* Use HA default size for crisp rendering */
+    width: 24px;
+    height: 24px;
+    display: block; /* Eliminate baseline alignment quirks */
+    position: absolute; /* Force exact centering vs flex/inline quirks */
+    top: 50%;
+    left: 50%;
+    /* Perfect centering with optional optical offset variables */
+    transform: translate(-50%, -50%)
+               translateX(var(--camera-light-icon-offset-x, 0px))
+               translateY(var(--camera-light-icon-offset-y, -0.5px));
+    pointer-events: none; /* Ensure clicks are handled by the button */
   }
 
   /* Print Status */
@@ -222,6 +319,7 @@ export const cardStyles = css`
     padding: 8px 0;
     border-radius: 8px;
     flex-grow: 1; /* Take available space */
+    min-width: 0; /* Allow flex child to shrink without overflowing */
   }
 
   .not-printing {
@@ -254,10 +352,16 @@ export const cardStyles = css`
   }
 
   .progress-bar {
+    width: 100%;
     height: 4px;
     background: var(--secondary-background-color);
     border-radius: 2px;
     margin: 4px 0;
+  }
+
+  /* In case header uses center alignment, force the progress bar to stretch full width */
+  .header .progress-bar {
+    align-self: stretch;
   }
 
   .progress-fill {
@@ -441,5 +545,86 @@ export const cardStyles = css`
     font-size: 12px;
     color: var(--primary-text-color);
     text-align: center;
+  }
+
+  /* Responsive: stack header and status on small screens */
+  @media (max-width: 480px) {
+    .print-status-header-wrapper {
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .print-status,
+    .header {
+      width: 100%;
+      min-width: 0; /* Ensure children can shrink */
+    }
+
+    .header {
+      flex-shrink: 1; /* Override earlier flex-shrink: 0 to allow shrinking */
+      align-items: stretch; /* Use full width for inner content */
+    }
+
+    .header-controls {
+      flex-wrap: wrap; /* Avoid controls pushing width */
+      justify-content: center; /* Keep nice alignment on mobile */
+      gap: 8px;
+    }
+    /* Scale down typography, spacing, and icons on small cards */
+    .header { font-size: 14px; padding: 2px 6px; }
+    .status { font-size: 14px; }
+    .progress-text, .layer-info { font-size: 12px; }
+    .progress-bar { height: 3px; margin: 2px 0; }
+    .header-controls .icon-button { padding: 6px; }
+    .header-controls .icon-button ha-icon { width: 20px; height: 20px; }
+
+    .print-preview { gap: 6px; }
+    .preview-image { width: 72px; }
+    .print-details h3 { font-size: 14px; }
+    .print-details .print-stats { font-size: 12px; }
+    .btn { padding: 6px 12px; font-size: 14px; }
+
+    .temperatures { font-size: 11px; padding: 2px 4px; }
+    .temp-item { padding: 2px 8px; font-size: 10px; }
+    .temp-value { font-size: 11px; }
+    .camera-label { font-size: 12px; padding: 2px 6px; }
+    .camera-light-toggle { width: 28px; height: 28px; }
+    .camera-light-toggle ha-icon { --mdc-icon-size: 20px; width: 20px; height: 20px; }
+  }
+
+  /* Extra-small mobile: further reduce on very narrow cards */
+  @media (max-width: 360px) {
+    .temperatures { font-size: 10px; padding: 1px 3px; }
+    .temp-item { padding: 1px 6px; font-size: 9px; }
+    .temp-value { font-size: 10px; }
+
+    .camera-light-toggle { width: 24px; height: 24px; }
+    .camera-light-toggle ha-icon { --mdc-icon-size: 18px; width: 18px; height: 18px; }
+  }
+
+  /* Container query (late in file to win cascade): on narrow cards, stack and stretch header
+     so the progress bar extends fully even on desktop with small card columns */
+  @container (max-width: 600px) {
+    .print-status-header-wrapper {
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .print-status,
+    .header {
+      width: 100%;
+      min-width: 0;
+    }
+
+    .header {
+      flex-shrink: 1;
+      align-items: stretch;
+    }
+
+    .header-controls {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
   }
 `;
